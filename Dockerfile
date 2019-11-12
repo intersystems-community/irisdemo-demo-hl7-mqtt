@@ -9,13 +9,11 @@ USER root
 RUN apt-get -y update && \
  apt-get install --no-install-recommends -y mosquitto mosquitto-clients && \
  apt-get clean && \
+ touch /var/run/mosquitto.pid && \
+ chown irisowner:irisuser /var/run/mosquitto.pid && \
  rm -rf /var/lib/apt/lists/*
 
 USER irisowner
-
-RUN mkdir $ISC_PACKAGE_INSTALLDIR/MQTT/logs && \
- touch $ISC_PACKAGE_INSTALLDIR/MQTT/logs/MQTTOut.log && \
- chmod g+rw,o+rw $ISC_PACKAGE_INSTALLDIR/MQTT/logs/MQTTOut.log
 
 # Adding REquired jar Files for MQTT
 ADD --chown=irisowner:irisuser ./IRIS-MQTT-IoT-Adapter/bin/*.jar $ISC_PACKAGE_INSTALLDIR/MQTT/jars/
@@ -23,6 +21,10 @@ ADD --chown=irisowner:irisuser ./IRIS-MQTT-IoT-Adapter/bin/*.jar $ISC_PACKAGE_IN
 #Adding the XMLSchemas
 ADD --chown=irisowner:irisuser ./IRIS-MQTT-IoT-Adapter/example/PassThrough/mqtt_schema_plaintext.xml $ISC_PACKAGE_INSTALLDIR/MQTT/xmlschemas/
 ADD --chown=irisowner:irisuser ./IRIS-MQTT-IoT-Adapter/example/PassThrough/mqtt_schema.xml $ISC_PACKAGE_INSTALLDIR/MQTT/xmlschemas/
+
+RUN mkdir $ISC_PACKAGE_INSTALLDIR/MQTT/logs && \
+ touch $ISC_PACKAGE_INSTALLDIR/MQTT/logs/MQTTOut.log && \
+ chmod g+rw,o+rw $ISC_PACKAGE_INSTALLDIR/MQTT/logs/MQTTOut.log
 
 # To create files and directories on the root file system, we need to be temporarily root:
 # Adding the script that will allow us to start IRIS and the MQTT broker
@@ -38,10 +40,10 @@ RUN mkdir /EMRHL7Feed && \
 # Going back to irisowner now
 USER irisowner
 
-ADD --chown=irisowner:irisuser ./html/HL7SchemaDocumentStructure.csp $ISC_PACKAGE_INSTALLDIR/csp/user/HL7/HL7SchemaDocumentStructure.csp
-ADD --chown=irisowner:irisuser ./html/LandingPage.png $ISC_PACKAGE_INSTALLDIR/csp/user
-ADD --chown=irisowner:irisuser ./html/image-map-resizer/js/imageMapResizer.min.js $ISC_PACKAGE_INSTALLDIR/csp/user/
-ADD --chown=irisowner:irisuser ./html/image-map-resizer/js/imageMapResizer.map $ISC_PACKAGE_INSTALLDIR/csp/user/
+ADD --chown=irisowner:irisuser ./html/HL7SchemaDocumentStructure.csp $ISC_PACKAGE_INSTALLDIR/csp/appint/HL7/HL7SchemaDocumentStructure.csp
+ADD --chown=irisowner:irisuser ./html/LandingPage.png $ISC_PACKAGE_INSTALLDIR/csp/appint
+ADD --chown=irisowner:irisuser ./html/image-map-resizer/js/imageMapResizer.min.js $ISC_PACKAGE_INSTALLDIR/csp/appint/
+ADD --chown=irisowner:irisuser ./html/image-map-resizer/js/imageMapResizer.map $ISC_PACKAGE_INSTALLDIR/csp/appint/
 
 ADD --chown=irisowner:irisuser ./template_hl7_message.txt /EMRHL7Feed
 
