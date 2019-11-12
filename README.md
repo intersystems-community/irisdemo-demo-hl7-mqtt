@@ -16,6 +16,8 @@ Have fun! :)
 
 Start with [this video](https://youtu.be/04msxC1F-hs) demo on YouTube (if you haven't already watched it).
 
+And [this video](https://videos.intersystems.com/detail/video/6030025700001/intersystems-iris-for-health-at-mit-grand-hack?autoStart=true&q=mit) explains how we added MQTT to the demo.
+
 ## Build it yourself!
 
 Now that you have watched the demo, you can watch [this second video](https://youtu.be/lp5iNE6WUhc) and take two different paths:
