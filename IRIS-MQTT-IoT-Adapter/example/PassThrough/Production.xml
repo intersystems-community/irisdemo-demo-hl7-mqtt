@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26" zv="IRIS for UNIX (Apple Mac OS X for x86-64) 2018.2 (Build 490U)" ts="2019-04-23 11:17:43">
+<Class name="MQTT.PassThroughDemo">
+<Super>Ens.Production</Super>
+<TimeChanged>65126,39839.209049</TimeChanged>
+<TimeCreated>65126,36329.31063</TimeCreated>
+
+<XData name="ProductionDefinition">
+<Data><![CDATA[
+<Production Name="MQTT.PassThroughDemo" LogGeneralTraceEvents="false">
+  <Description></Description>
+  <ActorPoolSize>2</ActorPoolSize>
+  <Item Name="EnsLib.JavaGateway.Initiator" Category="" ClassName="EnsLib.JavaGateway.Initiator" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Host" Name="ClassPath">/ISC/IoT/org.eclipse.paho.client.mqttv3-1.2.0.jar</Setting>
+  </Item>
+  <Item Name="MQTTIn" Category="" ClassName="JBH.Antonum.Iris.Mqtt.MqttBS" PoolSize="0" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Host" Name="DocSchemaCategory">mqtt_schema_plaintext</Setting>
+    <Setting Target="Host" Name="MQTTBrocker">tcp://127.0.0.1:1883</Setting>
+    <Setting Target="Host" Name="MQTTClientName">IRISInbox</Setting>
+    <Setting Target="Host" Name="MQTTTopicRoot">iris/in</Setting>
+    <Setting Target="Host" Name="TargetConfigNames">DemoProcess</Setting>
+  </Item>
+  <Item Name="MQTTOut" Category="" ClassName="JBH.Antonum.Iris.Mqtt.MqttBO" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Host" Name="MQTTBrocker">tcp://127.0.0.1:1883</Setting>
+    <Setting Target="Host" Name="MQTTClientName">IRISOutbox</Setting>
+    <Setting Target="Host" Name="MQTTTopicRoot">iris/out</Setting>
+    <Setting Target="Host" Name="LogFile">/ISC/IoT/mqtt.log</Setting>
+  </Item>
+  <Item Name="DemoProcess" Category="" ClassName="EnsLib.MsgRouter.VDocRoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Host" Name="Validation"></Setting>
+    <Setting Target="Host" Name="BusinessRuleName">MQTT.DemoProcessRoutingRule</Setting>
+  </Item>
+</Production>
+]]></Data>
+</XData>
+</Class>
+</Export>
