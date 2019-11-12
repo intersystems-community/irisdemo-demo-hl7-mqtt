@@ -1,4 +1,4 @@
-# IRIS Healthcare Integration Demo
+# IRIS Healthcare Integration Demo with MQTT
 
 This demo shows how easy it is to integrate an Electronic Medical Record system that is sending HL7 messages with AWS. The example shows how we can receive appointments (SIU_S12 messages), extract data from the message and do two things with the data:
 - Send a text (SMS) to notify the patient of the appointment
