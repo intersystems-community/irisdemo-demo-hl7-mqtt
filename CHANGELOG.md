@@ -1,3 +1,6 @@
+## 1.0.2 (November 13, 2019)
+  - Fixing bumpversion.sh
+
 ## 1.0.1 (November 13, 2019)
   - Fixing name of repository on build and run scripts
   - Update README.md

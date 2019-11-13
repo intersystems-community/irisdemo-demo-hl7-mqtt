@@ -37,7 +37,7 @@ Use the username **SuperUser** and the password **sys**. This is just a demo tha
 If you want to experience on building parts of the demo, start this other container instead:
 
 ```bash
-docker run -it --rm -p 52773:52773 --name iris intersystemsdc/irisdemo-demo-hl7-mqtt:student-version-1.0.0
+docker run -it --rm -p 52773:52773 --name iris intersystemsdc/irisdemo-demo-hl7-mqtt:student-version-1.0.2
 ```
 
 In this container, many componentes of the demo are missing, so you get to build and add them yourself.
