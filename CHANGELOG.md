@@ -1,3 +1,7 @@
+## 1.0.3 (November 13, 2019)
+  - Fixing bumpversion
+  - Adding --init
+
 ## 1.0.2 (November 13, 2019)
   - Fixing bumpversion.sh
 
