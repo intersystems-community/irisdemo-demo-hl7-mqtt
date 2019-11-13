@@ -63,7 +63,9 @@ if [ -f VERSION ]; then
     # belonging to this repository. References to other images such as Spark and Zeppelin 
     # will be let alone.
     #
-    sed -E -i '' "s;(intersystemsdc/irisdemo-demo-hl7-mqtt:.+)-version-[0-9][0-9.]*;\1-version-$INPUT_STRING;g" ./README.md
+
+    sed -E -i '' "s;(intersystemsdc/irisdemo-demo-hl7-mqtt):version-[0-9][0-9.]*;\1:version-$INPUT_STRING;g" ./README.md
+    sed -E -i '' "s;(intersystemsdc/irisdemo-demo-hl7-mqtt):student-version-[0-9][0-9.]*;\1:student-version-$INPUT_STRING;g" ./README.md
 
     echo "## $INPUT_STRING ($NOW)" > tmpfile
     git log --pretty=format:"  - %s" "v$BASE_STRING"...HEAD >> tmpfile
