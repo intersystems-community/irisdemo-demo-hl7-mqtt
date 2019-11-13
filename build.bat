@@ -1,6 +1,6 @@
 @ECHO OFF
 
-SET DOCKER_REPO=intersystemsdc/irisdemo-demo-twittersentiment
+SET DOCKER_REPO=intersystemsdc/irisdemo-demo-hl7-mqtt
 set /p VERSION=<VERSION
 set PWD=%~dp0
 
