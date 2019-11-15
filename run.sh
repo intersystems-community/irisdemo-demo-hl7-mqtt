@@ -11,7 +11,7 @@ printf "\n\t InterSystems IRIS Web Server Port is on 52773."
 printf "\n\t InterSystems IRIS Super Server Port is on 51773."
 printf "\n\t Mosquitto MQTT Broker is listening on port: 1883\n\n"
 
-docker run --init -it --rm \
+docker run -it --init --rm \
     -p 51773:51773 -p 52773:52773 -p 1883:1883 \
     --name irisdemo \
     ${DOCKER_REPO}:version-${VERSION}

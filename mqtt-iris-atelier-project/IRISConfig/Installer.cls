@@ -13,7 +13,7 @@ ClassMethod CreateCredentials(pNamespace As %String) As %Status
 		Set tNS=$Namespace
 		ZN pNamespace
 
-		Set tSC = ##class(Ens.Config.Credentials).SetCredential("MQTTCredential", "SuperUser", "SYS", 1)
+		Set tSC = ##class(Ens.Config.Credentials).SetCredential("MQTTCredential", "SuperUser", "sys", 1)
 		Quit:$System.Status.IsError(tSC)
 
 		Set tSC = ##class(Ens.Config.Credentials).SetCredential("AWSAccessKeyCredential", "***", "***", 1)

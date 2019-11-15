@@ -1,9 +1,5 @@
-FROM intersystemsdc/irisdemo-base-irishealthint-community:version-2019.3-1.3
+FROM intersystemsdc/irisdemo-base-irishealthint-community:version-1.6.3
 LABEL maintainer="Amir Samary <amir.samary@intersystems.com>"
-
-# Name of the IRIS project folder 
-ARG IRIS_PROJECT_FOLDER_NAME=mqtt-iris-atelier-project
-ADD --chown=irisowner:irisuser ./${IRIS_PROJECT_FOLDER_NAME}/ $IRIS_APP_SOURCEDIR
 
 USER root
 RUN apt-get -y update && \
@@ -46,6 +42,10 @@ ADD --chown=irisowner:irisuser ./html/image-map-resizer/js/imageMapResizer.min.j
 ADD --chown=irisowner:irisuser ./html/image-map-resizer/js/imageMapResizer.map $ISC_PACKAGE_INSTALLDIR/csp/appint/
 
 ADD --chown=irisowner:irisuser ./template_hl7_message.txt /EMRHL7Feed
+
+# Name of the IRIS project folder 
+ARG IRIS_PROJECT_FOLDER_NAME=mqtt-iris-atelier-project
+ADD --chown=irisowner:irisuser ./${IRIS_PROJECT_FOLDER_NAME}/ $IRIS_APP_SOURCEDIR
 
 # Loading IRIS source code
 RUN $ISC_PACKAGE_INSTALLDIR/demo/irisdemoinstaller.sh
