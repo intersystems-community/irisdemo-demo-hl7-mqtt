@@ -1,3 +1,7 @@
+## 1.1.0 (November 15, 2019)
+  - Based on IRIS for Health Community 2019.4
+  - Fixing links on landing page
+
 ## 1.0.3 (November 13, 2019)
   - Fixing bumpversion
   - Adding --init
