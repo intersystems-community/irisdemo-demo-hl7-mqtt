@@ -1,3 +1,6 @@
+## 1.3.0 (November 15, 2019)
+  - Fixing MQTT Broker and improving README with tips for testing MQTT
+
 ## 1.1.0 (November 15, 2019)
   - Based on IRIS for Health Community 2019.4
   - Fixing links on landing page
