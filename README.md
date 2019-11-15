@@ -46,6 +46,22 @@ Independently of the path you choose, don't forget to follow [the second video](
 
 Enjoy!
 
+# Testing MQTT
+
+After starting the container, you may want to test MQTT with the scripts mqttpub.sh and mqttsub.sh. You will need to install Mosquitto on your PC for that. 
+
+On a terminal window, run mqttsub.sh to subscripe to the topic "iris/out". 
+
+On another terminal windo, run mqttpub.sh to post a message to that topic:
+
+```
+mqttpub 100
+```
+
+You should see "100" appearing on your other terminal. That means that you just posted a message with content "100" to the "iris/in" topic. IRIS picked the message, processed and posted it back to the topic "iris/out". It is this second message that you are seeing on your other second terminal.
+
+You can also see the message trace inside IRIS.
+
 # Report any Issues
 
 Please, report any issues on the [Issues section](https://github.com/intersystems-community/irisdemo-demo-appointmentsms/issues).

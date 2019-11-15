@@ -6,6 +6,7 @@ RUN apt-get -y update && \
  apt-get install --no-install-recommends -y mosquitto mosquitto-clients && \
  apt-get clean && \
  touch /var/run/mosquitto.pid && \
+ chmod o+w,g+w /var/run/mosquitto.pid && \
  chown irisowner:irisuser /var/run/mosquitto.pid && \
  rm -rf /var/lib/apt/lists/*
 
@@ -50,4 +51,4 @@ ADD --chown=irisowner:irisuser ./${IRIS_PROJECT_FOLDER_NAME}/ $IRIS_APP_SOURCEDI
 # Loading IRIS source code
 RUN $ISC_PACKAGE_INSTALLDIR/demo/irisdemoinstaller.sh
 
-ENTRYPOINT ["/customStart.sh"]
+ENTRYPOINT ["/iris-main", "-a mosquitto"]
