@@ -1,3 +1,6 @@
+## 1.3.1 (November 18, 2019)
+  - Fixing DTL so that the observation value will be carried over to the new HL7 msg.
+
 ## 1.3.0 (November 15, 2019)
   - Fixing MQTT Broker and improving README with tips for testing MQTT
 
